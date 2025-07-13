@@ -1,0 +1,39 @@
+server:
+  host: "127.0.0.1"
+  port: 8080
+  enable_https: true
+
+database:
+  type: "postgres"
+  connection:
+    host: "localhost"
+    port: 5432
+    user: "admin"
+    password: "secret"
+
+features:
+  logging:
+    level: "debug"
+    sinks:
+      - "console"
+      - "file"
+  cache:
+    enabled: true
+    max_items: 500
+    strategy: "LRU"
+
+users:
+  - name: "Alice"
+    id: 1001
+    roles:
+      - "admin"
+      - "editor"
+  - name: "Bob"
+    id: 1002
+    roles:
+      - "viewer"
+
+thresholds:
+  cpu: 0.75
+  memory: 0.80
+  disk: 0.90
