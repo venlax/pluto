@@ -9,6 +9,8 @@ add_compile_definitions(CONFIG_PATH="/home/venicebitch/pluto/config/test/test.ya
 
 add_executable(pluto main.cpp
         src/log/log.cpp
+        include/log/error.h
+        include/common/errc_define.h
         src/config/config.cpp
         include/common/util.h
 )
@@ -24,3 +26,7 @@ target_link_options(test_log PRIVATE "-Wl,-rpath,/opt/gcc-15.1/lib64")
 add_executable(test_config test/config/test_config.cpp src/config/config.cpp)
 target_link_libraries(test_config /usr/local/lib/libyaml-cpp.so dl)
 target_link_options(test_config PRIVATE "-Wl,-rpath,/opt/gcc-15.1/lib64")
+
+add_executable(test_pool test/thread/test_pool.cpp)
+target_link_libraries(test_pool /usr/local/lib/libyaml-cpp.so dl)
+target_link_options(test_pool PRIVATE "-Wl,-rpath,/opt/gcc-15.1/lib64")
