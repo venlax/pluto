@@ -88,7 +88,7 @@ namespace pluto {
                 return false;
             }
 
-            bool await_suspend(std::coroutine_handle<> h) {
+            void await_suspend(std::coroutine_handle<> h) {
                 handle_ = h;
                 auto ft = pool_.enqueue([this_handle = handle_] {
                     this_handle.resume();

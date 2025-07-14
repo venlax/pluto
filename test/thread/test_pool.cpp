@@ -29,6 +29,6 @@ task_void test_task(ThreadPool& pool) {
 }
 int main() {
     ThreadPool pool(4);
-    test_task(pool);
+    auto t = test_task(pool);
     std::this_thread::sleep_for(std::chrono::seconds(1));
 }
