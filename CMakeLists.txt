@@ -9,8 +9,6 @@ add_compile_definitions(CONFIG_PATH="/home/venicebitch/pluto/config/test/test.ya
 
 add_executable(pluto main.cpp
         src/log/log.cpp
-        include/log/error.h
-        include/common/errc_define.h
         src/config/config.cpp
         include/common/util.h
 )

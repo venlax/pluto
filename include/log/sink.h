@@ -39,18 +39,18 @@ namespace pluto {
     class TLogSink final : public LogSink{
     public:
 
-        explicit TLogSink(T& sink);
+        explicit TLogSink(T& sink) : sink_(sink) {}
 
-        ~TLogSink() override;
+        ~TLogSink() override {}
 
-        void output(std::string_view str) override;
+        void output(std::string_view str) override {
+            std::println(sink_, "{}", str);
+        }
     private:
 
         T& sink_;
     };
 
 }
-
-#include "impl/sink.impl.h"
 
 #endif //PLUTO_LOG_SINK_H
